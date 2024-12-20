@@ -1,12 +1,14 @@
-require("@nomicfoundation/hardhat-toolbox");
+const { configDotenv } = require("dotenv");
 
+require("@nomicfoundation/hardhat-toolbox");
+configDotenv();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.27",
   networks: {
     hardhat: {
       forking: {
-        url: "https://mainnet.infura.io/v3/96cfe7e649f14ba09cdd7b651294b765",
+        url: process.env.INFURA_URL,
       },
     },
   },
